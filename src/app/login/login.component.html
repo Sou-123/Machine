@@ -1,0 +1,48 @@
+<p>login works!</p>
+
+<div class="container">
+    <div class="border">
+        <h3>Login Here..</h3>
+        <hr>
+        <form [formGroup]="loginForm" (ngSubmit)=" loginCredential()">
+            <div>
+
+                <p>
+
+                    <input type="text" placeholder="Enter User name" formControlName="fullname">
+                </p>
+            </div>
+
+            <div *ngIf="isSubmitted && formControls.fullname.errors">
+                <div *ngIf="formControls.fullname.errors.required" style="color:red; text-align:left">
+                    User Name is required
+                </div>
+            </div>
+
+            <br>
+
+            <div>
+
+                <p>
+
+                    <input type="password" placeholder="Enter User Password" formControlName="password">
+                </p>
+            </div>
+
+            <div *ngIf="isSubmitted && formControls.password.errors">
+                <div *ngIf="formControls.password.errors.required" style="color:red; text-align:left">
+                    Password is required
+                </div>
+            </div>
+
+            <br>
+
+            <div>
+                <button>Login</button>
+            </div>
+            <div *ngIf="error" style="color:red; text-align:left">
+                {{error}}
+            </div>
+        </form>
+    </div>
+</div>
